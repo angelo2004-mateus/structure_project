@@ -1,10 +1,11 @@
 import express from "express";
 import { conn } from "./Infrastructure/Database/Conection/conn";
-import userRoutes from "./Interfaces/Routes/userRoutes";
+import { createCrudRouter } from "./Interfaces/Routes/crudRouter";
+import { userController } from "./Interfaces/Controllers/UserController";
 
 const app = express();
 app.use(express.json());
-app.use("/users", userRoutes);
+app.use("/api/users", createCrudRouter(userController));
 
 conn.sync({ alter: true }).then(() => {
     console.log("Banco sincronizado!");
