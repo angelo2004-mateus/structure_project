@@ -1,7 +1,5 @@
 import { Model, ModelStatic } from "sequelize-typescript";
-import { IRepositoryBase } from "../../Domain/Repositories/IRepositoryBase";
-
-export abstract class RepositoryBase<TEntity extends Model> implements IRepositoryBase<TEntity> {
+export abstract class RepositoryBase<TEntity extends Model> {
     protected readonly model: ModelStatic<TEntity>;
 
     constructor(model: ModelStatic<TEntity>) {

@@ -1,8 +1,7 @@
-import { IRepositoryBase } from "../../Domain/Repositories/IRepositoryBase";
-import { ICrudApplicationService } from "./ICrudApplicationService";
+import { RepositoryBase } from "../../Infrastructure/Base/RepositoryBase";
 
-export abstract class CrudApplicationService<TEntity> implements ICrudApplicationService<TEntity> {
-    constructor(protected repository: IRepositoryBase<TEntity>) {}
+export abstract class CrudApplicationService<TEntity> {
+    constructor(protected repository: RepositoryBase<TEntity>) {}
 
     async findAll(): Promise<TEntity[]> {
         return this.repository.findAll();
